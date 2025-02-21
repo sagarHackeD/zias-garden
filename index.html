@@ -1,0 +1,105 @@
+<!-- a vuejs cdn template-->
+<!-- 
+Copyright (C) 2023 Sagar Naik sagarnaik430@googlemail.com
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS CDN Template</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css"> -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <style>
+        body {
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- <h4>Hello {{Name}}!..</h4> -->
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>Zia's Garden</ion-title>
+            </ion-toolbar>
+            <ion-toolbar>
+                <ion-searchbar></ion-searchbar>
+            </ion-toolbar>
+        </ion-header>
+
+
+        <ion-card v-for="p in all_data" width="50%">
+            <p>{{p}}</p>
+            <img alt="sagar" :src=p.img />
+            <ion-card-header>
+                <ion-card-title>{{p.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-card-subtitle>Description</ion-card-subtitle>
+                Passion fruits are round or oval, and range from a width of 1.5 to 3 inches (3.81 to 7.62
+                centimeters). They can be yellow, red, purple, or green.
+            </ion-card-content>
+        </ion-card>
+
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    Name: "Sagar",
+                    all_data: [
+                        {
+                            name: "passion_fruit",
+                            img: "static/photos/passion_fruit.jpg",
+                            price: 10,
+                            color: "purpule",
+                        },
+                        {
+                            name: "passion_fruit",
+                            img: "static/photos/passion_fruit.jpg",
+                            price: 20,
+                            color: "purpule",
+                        },
+                        {
+                            name: "passion_fruit",
+                            img: "static/photos/passion_fruit.jpg",
+                            price: 30,
+                            color: "purpule",
+                        },
+                    ]
+                }
+            },
+            methods: {
+                ButtonClick() {
+                    console.log("ButtonClick")
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
