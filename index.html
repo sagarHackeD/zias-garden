@@ -36,7 +36,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" style="width: 50%;margin: auto;">
 
         <!-- <h4>Hello {{Name}}!..</h4> -->
         <ion-header>
@@ -48,19 +48,26 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
             </ion-toolbar>
         </ion-header>
 
+        <ion-list>
+            <ion-card v-for="p in all_data" width="50%">
+                <p>{{p}}</p>
+                <img alt="sagar" :src=p.img />
+                <ion-card-header>
+                    <ion-card-title>{{p.name}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-card-subtitle>Description</ion-card-subtitle>
+                    {{p.discription}}
+                </ion-card-content>
+            </ion-card>
+        </ion-list>
+        <ion-infinite-scroll>
+            <ion-infinite-scroll-content loading-text="Please wait..."
+                loading-spinner="bubbles"></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
 
-        <ion-card v-for="p in all_data" width="50%">
-            <p>{{p}}</p>
-            <img alt="sagar" :src=p.img />
-            <ion-card-header>
-                <ion-card-title>{{p.name}}</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-                <ion-card-subtitle>Description</ion-card-subtitle>
-                Passion fruits are round or oval, and range from a width of 1.5 to 3 inches (3.81 to 7.62
-                centimeters). They can be yellow, red, purple, or green.
-            </ion-card-content>
-        </ion-card>
+
+
 
     </div>
 
@@ -77,6 +84,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
                             img: "static/photos/passion_fruit.jpg",
                             price: 10,
                             color: "purpule",
+                            discription: "Passion fruits are round or oval, and range from a width of 1.5 to 3 inches (3.81 to 7.62 centimeters). They can be yellow, red, purple, or green."
                         },
                         {
                             name: "passion_fruit",
